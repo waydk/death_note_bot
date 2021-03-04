@@ -1,7 +1,8 @@
+import asyncpg
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 
-from loader import dp
+from loader import dp, db
 from stickers.dn_stickers import ryuk_hi
 
 
@@ -13,3 +14,11 @@ async def bot_start(message: types.Message):
                          f"🍎 /rules 🖋 (click here) \n\n"
                          f"If you have read the rules, you can start using the death note: \n\n"
                          f"📓 /write_down 📓 (click here)")
+    name = message.from_user.full_name
+    try:
+        await db.add_user(id=message.from_user.id,
+                          name=name)
+    except asyncpg.exceptions.UniqueViolationError:
+        pass
+
+

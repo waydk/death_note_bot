@@ -1,12 +1,15 @@
+from loader import db
 from loader import bot, storage
 
 
 async def on_startup(dp):
+    await db.create()
     import middlewares
     middlewares.setup(dp)
 
     from utils.notify_admins import on_startup_notify
     await on_startup_notify(dp)
+    await db.create_table_users()
 
 
 async def on_shutdown(dp):
