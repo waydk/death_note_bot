@@ -11,6 +11,7 @@ from utils.pages import get_page
 
 @dp.message_handler(Command("rules"))
 async def show_book(message: types.Message):
+    await message.delete()
     text = get_page(rules)
     await message.answer(text,
                          reply_markup=get_page_keyboard(max_pages=max_pages_rules))
