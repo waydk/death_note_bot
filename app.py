@@ -1,5 +1,6 @@
 from loader import db, db_note
 from loader import bot, storage
+from utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dp):
@@ -7,6 +8,7 @@ async def on_startup(dp):
     await db_note.create()
     import middlewares
     middlewares.setup(dp)
+    await set_default_commands(dp)
 
     from utils.notify_admins import on_startup_notify
     await on_startup_notify(dp)
