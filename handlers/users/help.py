@@ -8,6 +8,9 @@ from loader import dp
 async def bot_help(message: types.Message):
     text = ("available commands: ",
             "/start - start a conversation",
-            "/help - get info")
+            "/help - get info",
+            "/rules - rules for the use of the death note"
+            "/write_down - write in the death note\n"
+            "/death_list - show victim list ")
     
     await message.answer("\n".join(text))
