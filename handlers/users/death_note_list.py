@@ -14,7 +14,7 @@ async def parse_db_victims(victims):
         tags = str(victim).find("'")
         new_victim = (str(victim)[tags:].replace(">", ''))
         new_victim = new_victim.replace("'", "")
-        death_note_list.append(new_victim.replace('reason=', ' | причина:  '))
+        death_note_list.append(new_victim.replace('reason=', ' | reason:  '))
     return '\n'.join(death_note_list)
 
 
