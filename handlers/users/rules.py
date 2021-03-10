@@ -9,7 +9,7 @@ from loader import dp
 from utils.pages import get_page
 
 
-@dp.message_handler(Command("rules"))
+@dp.message_handler(Command("rules"), state='*')
 async def show_book(message: types.Message):
     await message.delete()
     text = get_page(rules)
@@ -17,12 +17,12 @@ async def show_book(message: types.Message):
                          reply_markup=get_page_keyboard(max_pages=max_pages_rules))
 
 
-@dp.callback_query_handler(pagination_call.filter(page="current_page"))
+@dp.callback_query_handler(pagination_call.filter(page="current_page"), state='*')
 async def current_page_error(call: CallbackQuery):
     await call.answer(cache_time=60)
 
 
-@dp.callback_query_handler(pagination_call.filter(key="rules"))
+@dp.callback_query_handler(pagination_call.filter(key="rules"), state='*')
 async def show_chosen_page(call: CallbackQuery, callback_data: dict):
     current_page = int(callback_data.get("page"))
     text = get_page(rules, page=current_page)
@@ -30,6 +30,6 @@ async def show_chosen_page(call: CallbackQuery, callback_data: dict):
     await call.message.edit_text(text=text, reply_markup=markup)
 
 
-@dp.callback_query_handler(close_callback.filter(name='close'))
+@dp.callback_query_handler(close_callback.filter(name='close'), state='*')
 async def close(call: CallbackQuery):
     await call.message.delete()

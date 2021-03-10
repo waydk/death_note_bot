@@ -5,7 +5,7 @@ from loader import dp
 from stickers.dn_stickers import kira
 
 
-@dp.message_handler(CommandHelp())
+@dp.message_handler(CommandHelp(), state='*')
 async def bot_help(message: types.Message):
     text = ("available commands: ",
             "/start - start a conversation",

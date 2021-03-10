@@ -6,7 +6,7 @@ from loader import dp, db
 from stickers.dn_stickers import ryuk_hi
 
 
-@dp.message_handler(CommandStart())
+@dp.message_handler(CommandStart(), state='*')
 async def bot_start(message: types.Message):
     await message.answer_sticker(sticker=ryuk_hi)
     await message.answer(f"hello, {message.from_user.full_name}!\n\n"

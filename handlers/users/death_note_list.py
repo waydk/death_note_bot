@@ -18,7 +18,7 @@ async def parse_db_victims(victims):
     return '\n'.join(death_note_list)
 
 
-@dp.message_handler(Command("death_list"))
+@dp.message_handler(Command("death_list"), state='*')
 async def show_death_note(message: types.Message):
     user_id = message.from_user.id
     victims = await db_note.select_victims(id_user=user_id)
@@ -29,13 +29,13 @@ async def show_death_note(message: types.Message):
                               f'{await parse_db_victims(victims)}', reply_markup=delete_victims_keyboard)
 
 
-@dp.callback_query_handler(delete_victims_call.filter(name="delete"))
+@dp.callback_query_handler(delete_victims_call.filter(name="delete"), state='*')
 async def agree_victims(call: CallbackQuery):
     await call.answer(cache_time=1)
     await call.message.edit_text(text='Are you sure? The whole list will be cleared! ', reply_markup=agreement_keyboard)
 
 
-@dp.callback_query_handler(delete_victims_call.filter(name='yes'))
+@dp.callback_query_handler(delete_victims_call.filter(name='yes'), state='*')
 async def delete_victims(call: CallbackQuery):
     user_id = call.from_user.id
     await call.answer(cache_time=1)
@@ -46,7 +46,7 @@ async def delete_victims(call: CallbackQuery):
                                       f'', reply_markup=delete_victims_keyboard)
 
 
-@dp.callback_query_handler(delete_victims_call.filter(name='no'))
+@dp.callback_query_handler(delete_victims_call.filter(name='no'), state='*')
 async def delete_victims(call: CallbackQuery):
     user_id = call.from_user.id
     await call.answer(cache_time=1)
