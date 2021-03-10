@@ -1,2 +1,4 @@
 aiogram>=2.11.2,<3.0
+asyncpg
+aiohttp>=3.6.2
 environs~=8.0.0
