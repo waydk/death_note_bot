@@ -93,3 +93,10 @@ class DatabaseNote:
 
     async def count_victims(self):
         return await self.pool.fetchval("SELECT COUNT(*) FROM Notes")
+
+    async def delete_victims(self, **kwargs):
+        sql = f"""
+             DELETE FROM Notes WHERE 
+             """
+        sql, parameters = self.format_args(sql, parameters=kwargs)
+        return await self.pool.fetch(sql, *parameters)
