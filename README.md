@@ -7,6 +7,15 @@
 
 
 <br>Death Note bot telegram is made for fun.</br>
+
+## How to use
+- Rename .env.dist to .env
+### in the .env file
+- Get a bot token from [@BotFather](http://telegram.me/BotFather) and replace BOT_TOKEN with your own
+- Replace ADMINS with your id 
+- Replace PGPASSWORD with your own
+### If there are questions: [Telegram](https://t.me/waydk)
+
 <br>available commands:</br>
 <br>/start - start a conversation</br>
 /help - get info
