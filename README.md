@@ -1,6 +1,6 @@
 # Death Note Telegram Bot
 
-![Image alt](https://img.shields.io/badge/death%20note%20%F0%9F%93%93-telegram__bot-lightgrey)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fwaydk%2FDeathNoteBot&count_bg=%23000000&title_bg=%23000000&icon=riseup.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 
 
