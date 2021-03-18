@@ -1,19 +1,19 @@
-from loader import db, db_note
+from loader import db
 from loader import bot, storage
+from utils.db_api import db_gino
 from utils.set_bot_commands import set_default_commands
 
 
 async def on_startup(dp):
-    await db.create()
-    await db_note.create()
     import middlewares
     middlewares.setup(dp)
+
     await set_default_commands(dp)
 
     from utils.notify_admins import on_startup_notify
     await on_startup_notify(dp)
-    await db.create_table_users()
-    await db_note.create_table_note()
+    await db_gino.on_startup(dp)
+    await db.gino.create_all()
 
 
 async def on_shutdown(dp):

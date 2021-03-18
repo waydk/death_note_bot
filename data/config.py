@@ -9,5 +9,7 @@ IP = env.str("ip")
 DB_HOST = IP
 PGUSER = env.str("PGUSER")
 PGPASSWORD = env.str("PGPASSWORD")
+DATABASE = env.str("DATABASE")
 
-POSTGRES_URI = f"postgresql://{PGUSER}:{PGPASSWORD}@{DB_HOST}/{'postgres'}"
+POSTGRES_URI = f"postgresql://{PGUSER}:{PGPASSWORD}@{DB_HOST}/{DATABASE}"
+
