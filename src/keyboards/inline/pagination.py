@@ -1,6 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from keyboards.inline.callback_datas import close_callback, pagination_call
+from src.keyboards.inline.callback_datas import close_callback, pagination_call
 
 
 def get_page_keyboard(max_pages: int, key="rules", page: int = 1):

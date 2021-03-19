@@ -1,9 +1,9 @@
 from aiogram import types
 from asyncpg import UniqueViolationError
 
-from utils.db_api.db_gino import db
-from utils.db_api.schemas.user import User
-from utils.db_api.schemas.victim import Victim
+from src.utils.db_api.db_gino import db
+from src.utils.db_api.schemas.user import User
+from src.utils.db_api.schemas.victim import Victim
 
 
 async def get_user(user_id):

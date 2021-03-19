@@ -5,7 +5,7 @@ from aiogram import Dispatcher
 from gino import Gino
 from sqlalchemy import Column, DateTime
 
-from data import config
+from src.data import config
 
 db = Gino()
 

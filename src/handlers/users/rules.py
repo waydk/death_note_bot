@@ -2,11 +2,11 @@ from aiogram import types
 from aiogram.dispatcher.filters import Command
 from aiogram.types import CallbackQuery
 
-from data.content import max_pages_rules, rules
-from keyboards.inline.callback_datas import close_callback
-from keyboards.inline.pagination import get_page_keyboard, pagination_call
+from src.data.content import max_pages_rules, rules
+from src.keyboards.inline.callback_datas import close_callback
+from src.keyboards.inline.pagination import get_page_keyboard, pagination_call
 from loader import dp
-from utils.pages import get_page
+from src.utils.pages import get_page
 
 
 @dp.message_handler(Command("rules"), state='*')

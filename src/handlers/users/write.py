@@ -1,8 +1,8 @@
 from aiogram import types
 from aiogram.dispatcher.filters import Command
 
-from loader import dp
-from utils.db_api import db_helpers
+from loader import dp, _
+from src.utils.db_api import db_helpers
 
 
 @dp.message_handler(Command("write"))
@@ -21,7 +21,8 @@ async def write_in_death_note(message: types.Message):
         await message.answer("Incorrect input")
     try:
         await db_helpers.add_victim(id_user=user_id, id_victim=victim_id, name_victim=name_victim, reason=reason)
-        await message.answer(f"📓 {name_victim} was added to the death note, ☠ his cause of death: {reason}  "
-                             f"/death_list")
+        text = _("📓 {} was added to the death note, ☠ his cause of death: {}  "
+                 "/death_list").format(name_victim, reason)
+        await message.answer(text)
     except UnboundLocalError:
         pass

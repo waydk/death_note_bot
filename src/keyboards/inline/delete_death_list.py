@@ -1,6 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from keyboards.inline.callback_datas import delete_victims_call
+from src.keyboards.inline.callback_datas import delete_victims_call
 
 delete_victims_keyboard = InlineKeyboardMarkup()
 delete_victims_button = InlineKeyboardButton(text='Clear', callback_data=delete_victims_call.new("delete"))
