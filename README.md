@@ -7,8 +7,9 @@
 - Replace ADMINS with your id 
 - Replace PGPASSWORD with your own
 - Replace DATABASE with your own
-#### compile languages
-pybabel compile -d locales -D death_note_bot
+#### Compile languages
+at the terminal:
+##### <code>pybabel compile -d locales -D death_note_bot</code>
 ### If there are questions: [Telegram](https://t.me/waydk)
 
 <br>available commands:</br>
