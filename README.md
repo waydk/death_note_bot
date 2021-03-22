@@ -7,9 +7,14 @@
 - Replace ADMINS with your id 
 - Replace PGPASSWORD with your own
 - Replace DATABASE with your own
-#### Compile languages
+- Replace PGHOST with docker ip
+#### Before using сompile languages
 at the terminal:
 ##### <code>pybabel compile -d locales -D death_note_bot</code>
+
+#### In the project folder, run
+##### <code>docker-compose up</code>
+
 ### If there are questions: [Telegram](https://t.me/waydk)
 
 <br>available commands:</br>
