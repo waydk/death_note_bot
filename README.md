@@ -1,5 +1,12 @@
-# Death Note Telegram Bot
+![DEATH_NOTE](https://img3.goodfon.ru/wallpaper/nbig/d/fd/tetrad-smerti-layt-l-ryuk.jpg)
+
+# Death Note Bot @dth_note_bot
+ 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fwaydk%2FDeathNoteBot&count_bg=%23000000&title_bg=%23000000&icon=riseup.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+![Python](https://img.shields.io/badge/python%20-3.8-black?labelColor=060606&logo=python&logoColor=white)
+![Made](https://img.shields.io/badge/Made%20with%20fun%20-🍎-black?labelColor=060606)
+![Licence](https://img.shields.io/badge/Licence%20-MIT-black?labelColor=060606)
+
 ## How to use
 - Rename .env.dist to .env
 ### in the .env file
@@ -16,25 +23,3 @@ at the terminal:
 ##### <code>docker-compose up</code>
 
 ### If there are questions: [Telegram](https://t.me/waydk)
-
-<br>available commands:</br>
-<br>/start - start a conversation</br>
-/help - get info
-<br>/rules - rules for the use of the death note</br>
-/write_down - write in the death note
-<br>/death_list - show victim list</br>
-***
-At the command to start:
-<br>A user database is created and the user is added to it and a welcome message is displayed</br>
-<br>![Image alt](https://github.com/waydk/death-note_bot/blob/main/src/examples/start_command.PNG)</br>
-***
-If a person clicks on the /rules:
-<br>Then the rules with the page turnover keyboard will be displayed</br>
-<br>![Image alt](https://github.com/waydk/DeathNoteBot/blob/main/src/examples/rules_command.PNG)</br>
-***
-If the user presses /write_down, he will be sent to the death note entry state
-<br>The first state will ask for the first and last name, the second the cause of death, and it will all be added to the database</br>
-<br>![Image alt](https://github.com/waydk/DeathNoteBot/blob/main/src/examples/death_note.PNG)</br>
-*** 
-The last command /death_list takes from the database, the people recorded in the death note, and displays the list to the user.
-<br>![Image alt](https://github.com/waydk/DeathNoteBot/blob/main/src/examples/death_note_list.PNG)</br>
