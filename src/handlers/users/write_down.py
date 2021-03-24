@@ -37,6 +37,7 @@ async def write_surname_name(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=DeathNote.cause_of_death)
 async def write_cause(message: types.Message, state: FSMContext):
+    """The function writes the victim to the database"""
     cause_of_death = message.text
     if cause_of_death == "None" or cause_of_death == "none":
         cause_of_death = "Heart attack"

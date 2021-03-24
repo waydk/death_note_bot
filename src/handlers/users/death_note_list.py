@@ -9,6 +9,7 @@ from src.utils.db_api import db_helpers
 
 
 async def retrieved(victims):
+    """The function creates a list with victims in readable form and returns the strings"""
     text = _("reason")
     victims_list = []
     for victim in victims:
@@ -19,6 +20,7 @@ async def retrieved(victims):
 
 @dp.message_handler(Command("death_list"), state='*')
 async def show_death_note(message: types.Message):
+    """The function takes the list of victims from the database and replies to the user"""
     user_id = message.from_user.id
     victims = await db_helpers.select_all_victims(user_id=user_id)
     text = _('Write more /write_down✒\n\n '
@@ -38,6 +40,7 @@ async def agree_victims(call: CallbackQuery):
 
 @dp.callback_query_handler(delete_victims_call.filter(name='yes'), state='*')
 async def delete_victims(call: CallbackQuery):
+    """The function deletes the user's victims from the database"""
     user_id = call.from_user.id
     await call.answer(cache_time=1)
     await db_helpers.delete_victims(user_id=user_id)
