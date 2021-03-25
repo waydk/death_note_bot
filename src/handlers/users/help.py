@@ -12,7 +12,7 @@ async def bot_help(message: types.Message):
              "/help - get info\n"
              "/rules - rules for the use of the death note\n"
              "/write_down - write in the death note\n"
-             "/write (example: yagami light heart_attack)\n"
-             "/death_list - show victim list\n")
+             "/write (example: yagami light heart_attack) \n"
+             "/death_list - show victim list")
     await message.answer_sticker(kira)
     await message.answer(text)
