@@ -5,7 +5,7 @@ from loader import dp, _
 from src.utils.db_api import db_helpers
 
 
-@dp.message_handler(Command("write"))
+@dp.message_handler(Command("write"), state="*")
 async def write_in_death_note(message: types.Message):
     """A simplified /write_down function that allows you to write
     the victim to the database"""

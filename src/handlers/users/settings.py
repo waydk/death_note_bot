@@ -9,20 +9,20 @@ from loader import dp
 from src.utils.db_api import db_helpers
 
 
-@dp.message_handler(Command("settings"))
+@dp.message_handler(Command("settings"), state='*')
 async def open_settings(message: types.Message):
     await message.delete()
     await message.answer(_("Settings"), reply_markup=settings_markup)
 
 
-@dp.callback_query_handler(settings_callback.filter(title="change_lang"))
+@dp.callback_query_handler(settings_callback.filter(title="change_lang"), state='*')
 async def change_language(call: CallbackQuery):
     await call.answer(cache_time=1)
     await call.message.answer(_("Select a language "), reply_markup=languages_markup)
     await call.message.delete()
 
 
-@dp.callback_query_handler(text_contains="lang")
+@dp.callback_query_handler(text_contains="lang", state='*')
 async def change_language(call: CallbackQuery):
     await call.message.edit_reply_markup()
     lang = call.data[-2:]

@@ -8,7 +8,7 @@ from src.stickers.dn_stickers import ryuk_write_down, death_note_sticker
 from src.utils.db_api import db_helpers
 
 
-@dp.message_handler(Command("write_down"))
+@dp.message_handler(Command("write_down"), state="*")
 async def write_in_death_note(message: types.Message):
     text_dare = _("📓 You dared to use the death notebook, brave thing to do! Good luck!")
     text_victim = _("Write the victim's first and last name \n"
