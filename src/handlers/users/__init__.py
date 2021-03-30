@@ -4,6 +4,7 @@ from .rules import dp
 from .settings import dp
 from .death_note_list import dp
 from .top_users import dp
+from .shop import dp
 from .write import dp
 from .write_down import dp
 
