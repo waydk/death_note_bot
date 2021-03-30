@@ -56,7 +56,7 @@ async def write_cause(message: types.Message, state: FSMContext):
 
     await db_helpers.add_victim(id_user=user_id, id_victim=victim_id, name_victim=surname_first_name,
                                 reason=cause_of_death)
-    text_death_note = _("✒ {} was recorded in the death notebook\n\n"
+    text_death_note = _("✒ {} was recorded in the death note\n\n"
                         "☠ Cause of death: "
                         "{} 🍎 \n\n"
                         "📓 Open death note:  /death_list").format(surname_first_name, cause_of_death)

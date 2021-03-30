@@ -8,4 +8,5 @@ class User(TimedBaseModel):
     id = Column(BigInteger, primary_key=True)
     name = Column(String(100))
     language = Column(String(2))
+    apples = Column(BigInteger)
     query: sql.Select

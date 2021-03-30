@@ -20,4 +20,4 @@ async def bot_start(message: types.Message):
     await message.answer(text)
     name = message.from_user.full_name
     await db_helpers.add_user(id_user=message.from_user.id,
-                              name=name)
+                              name=name, apples=0)

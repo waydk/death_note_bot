@@ -11,9 +11,9 @@ async def get_user(user_id):
     return user
 
 
-async def add_user(id_user: int, name: str):
+async def add_user(id_user: int, name: str, apples: int):
     try:
-        user = User(id=id_user, name=name)
+        user = User(id=id_user, name=name, apples=apples)
         await user.create()
 
     except UniqueViolationError:
@@ -57,3 +57,9 @@ async def select_all_victims(user_id):
 
 async def delete_victims(user_id):
     await Victim.delete.where(Victim.id_user == user_id).gino.all()
+
+
+async def add_apples(user_id, apples):
+    user = await User.query.where(User.id == user_id).gino.first()
+    await user.update(apples=user.apples + apples).apply()
+    return user.apples
