@@ -2,7 +2,8 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Command
 
-from loader import dp, _
+from loader import dp, _, bot
+from src.keyboards.inline.close_keyboard import close_markup
 from src.states.death_note import DeathNote
 from src.stickers.dn_stickers import ryuk_write_down, death_note_sticker
 from src.utils.db_api import db_helpers
@@ -22,6 +23,8 @@ async def write_in_death_note(message: types.Message):
 
 @dp.message_handler(state=DeathNote.surname_first_name)
 async def write_surname_name(message: types.Message, state: FSMContext):
+    for message_id in range(4):
+        await bot.delete_message(message.from_user.id, message.message_id - message_id)
     user_id = message.from_user.id
     surname_first_name = message.text
     victim_id = message.message_id
@@ -38,6 +41,8 @@ async def write_surname_name(message: types.Message, state: FSMContext):
 @dp.message_handler(state=DeathNote.cause_of_death)
 async def write_cause(message: types.Message, state: FSMContext):
     """The function writes the victim to the database"""
+    for message_id in range(3):
+        await bot.delete_message(message.from_user.id, message.message_id - message_id)
     cause_of_death = message.text
     if cause_of_death == "None" or cause_of_death == "none":
         cause_of_death = "Heart attack"
@@ -55,6 +60,6 @@ async def write_cause(message: types.Message, state: FSMContext):
                         "☠ Cause of death: "
                         "{} 🍎 \n\n"
                         "📓 Open death note:  /death_list").format(surname_first_name, cause_of_death)
-    await message.answer(text_death_note)
+    await message.answer(text_death_note, reply_markup=close_markup)
 
     await state.finish()

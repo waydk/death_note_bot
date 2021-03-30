@@ -2,6 +2,7 @@ from aiogram import types
 from aiogram.dispatcher.filters import Command
 
 from loader import dp, _
+from src.keyboards.inline.close_keyboard import close_markup
 from src.utils.db_api import db_helpers
 
 
@@ -18,10 +19,10 @@ async def write_in_death_note(message: types.Message):
         await db_helpers.add_victim(id_user=user_id, id_victim=victim_id, name_victim=name_victim, reason=reason)
         text = _("📓 {} was added to the death note, ☠ his cause of death: {}  "
                  "/death_list").format(name_victim, reason)
-        await message.answer(text)
+        await message.answer(text, reply_markup=close_markup)
     except IndexError:
         text = _("(」°ロ°)」 Incorrect input\n"
                  "\n"
                  "📌 Example: /write Yagami Light Upal\n"
                  "📌 Only three words after /write")
-        await message.answer(text)
+        await message.answer(text, reply_markup=close_markup)

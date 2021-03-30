@@ -1,7 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
 
-from src.keyboards.inline.language_keyboard import languages_markup
 from loader import dp, _
 from src.stickers.dn_stickers import ryuk_hi
 from src.utils.db_api import db_helpers
