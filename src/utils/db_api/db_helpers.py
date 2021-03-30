@@ -4,6 +4,7 @@ from asyncpg import UniqueViolationError
 from src.utils.db_api.db_gino import db
 from src.utils.db_api.schemas.user import User
 from src.utils.db_api.schemas.victim import Victim
+import operator
 
 
 async def get_user(user_id):
@@ -63,3 +64,12 @@ async def add_apples(user_id, apples):
     user = await User.query.where(User.id == user_id).gino.first()
     await user.update(apples=user.apples + apples).apply()
     return user.apples
+
+
+async def get_top_users():
+    users = await User.query.gino.all()
+    users_names_apples = {}
+    for user in users:
+        users_names_apples[f"{user.name}"] = user.apples
+    top_users = sorted(users_names_apples.items(), key=operator.itemgetter(1), reverse=True)
+    return top_users
