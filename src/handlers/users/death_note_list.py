@@ -60,3 +60,4 @@ async def delete_victims(call: CallbackQuery):
              '---------------------------------------\n'
              '{}').format(await retrieved(victims))
     await call.message.edit_text(text=text, reply_markup=delete_victims_keyboard)
+
