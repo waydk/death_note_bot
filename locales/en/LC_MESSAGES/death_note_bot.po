@@ -1,0 +1,198 @@
+# English translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-03-30 16:18+0300\n"
+"PO-Revision-Date: 2021-03-30 16:19+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: src/handlers/users/death_note_list.py:13
+msgid "reason"
+msgstr ""
+
+#: src/handlers/users/death_note_list.py:26
+#: src/handlers/users/death_note_list.py:58
+msgid ""
+"Write more /write_down✒\n"
+"\n"
+" 🍎 Your Death Note : \n"
+"---------------------------------------\n"
+"{}"
+msgstr ""
+
+#: src/handlers/users/death_note_list.py:37
+msgid "Are you sure? The whole list will be cleared! "
+msgstr ""
+
+#: src/handlers/users/death_note_list.py:47
+msgid ""
+"Write more /write_down✒\n"
+"\n"
+" 🍎 Your Death Note : \n"
+"---------------------------------------\n"
+msgstr ""
+
+#: src/handlers/users/help.py:14
+msgid ""
+"available commands:\n"
+"/start - start a conversation\n"
+"/help - get info\n"
+"/rules - rules for the use of the death note\n"
+"/write_down - write in the death note\n"
+"/write (example: yagami light heart_attack) \n"
+"/death_list - show victim list\n"
+"/shop - buy something\n"
+"/top - top users by number of apples\n"
+msgstr ""
+
+#: src/handlers/users/settings.py:16
+msgid ""
+"⚙ Welcome to settings, here you can change your language!\n"
+"🇷🇺 or 🇺🇸 Click the button below"
+msgstr ""
+
+#: src/handlers/users/settings.py:26
+msgid "Choose a language 😳"
+msgstr ""
+
+#: src/handlers/users/settings.py:34
+msgid "Your language has been changed 😳"
+msgstr ""
+
+#: src/handlers/users/shop.py:23
+msgid ""
+"Welcome to the store 🏪\n"
+"\n"
+"Your number of apples: {} 🍎\n"
+"Replenish apples : /write or /write_down \n"
+"\n"
+"By clicking the button below, you can purchase 🛍\n"
+"Enjoy your time 😌"
+msgstr ""
+
+#: src/handlers/users/shop.py:38 src/handlers/users/shop.py:57
+#: src/handlers/users/shop.py:73
+msgid ""
+"You don't have enough apples 🍎\n"
+"Replenish apples : /write or /write_down"
+msgstr ""
+
+#: src/handlers/users/shop.py:44 src/handlers/users/shop.py:47
+msgid ""
+"{}\n"
+"\n"
+" Your apples: {} 🍎"
+msgstr ""
+
+#: src/handlers/users/shop.py:62
+msgid "Your apples: {} 🍎"
+msgstr ""
+
+#: src/handlers/users/shop.py:78
+msgid ""
+"You seem to be today: {}\n"
+"\n"
+"Your apples: {} 🍎"
+msgstr ""
+
+#: src/handlers/users/start.py:12
+msgid ""
+"Hello, {}!\n"
+"\n"
+"You have the privilege of using the Death Note, so read the rules before "
+"you start:\n"
+"\n"
+"🍎 /rules 🖋 (click here) \n"
+"\n"
+"If you have read the rules, you can start using the death note: \n"
+"\n"
+"📓 /write_down 📓 (click here) \n"
+"\n"
+"Your Death Note:\n"
+"\n"
+" 📔 /death_list (click here)\n"
+"\n"
+"Settings:\n"
+"\n"
+"⚙ /settings (click here)\n"
+"\n"
+"For each kill you can get 10 apples 🍎 , which you can spend on something "
+"in the shop\n"
+"\n"
+"🏪 /shop (click here)"
+msgstr ""
+
+#: src/handlers/users/top_users.py:24
+msgid ""
+"😳 TOP dudes with apples:\n"
+"{}"
+msgstr ""
+
+#: src/handlers/users/write.py:23
+msgid ""
+"📓 {} was added to the death note\n"
+" ☠ his cause of death: {}\n"
+"  Check death note: /death_list"
+msgstr ""
+
+#: src/handlers/users/write.py:25 src/handlers/users/write_down.py:66
+msgid ""
+"Congratulations 🎉!\n"
+"You got 10 apples 🍎 \n"
+"Your number of apples: {} 🍎"
+msgstr ""
+
+#: src/handlers/users/write.py:30
+msgid ""
+"(」°ロ°)」 Incorrect input\n"
+"\n"
+"📌 Example: /write Yagami Light Upal\n"
+"📌 Only three words after /write"
+msgstr ""
+
+#: src/handlers/users/write_down.py:15
+msgid "📓 You dared to use the death notebook, brave thing to do! Good luck!"
+msgstr ""
+
+#: src/handlers/users/write_down.py:16
+msgid ""
+"Write the victim's first and last name \n"
+"⚫------------------------------------- ⚫\n"
+"    🖋example: Yagami Light"
+msgstr ""
+
+#: src/handlers/users/write_down.py:35
+msgid ""
+"Write down the cause of death ✒\n"
+"\n"
+"Unless you want to give yours, then the victim will die of a heart attack"
+" 💔⚰\n"
+"\n"
+"For that write none or None ✒ "
+msgstr ""
+
+#: src/handlers/users/write_down.py:62
+msgid ""
+"✒ {} was recorded in the death note\n"
+"\n"
+"☠ Cause of death: {} 🍎 \n"
+"\n"
+"📓 Open death note:  /death_list"
+msgstr ""
+
+#: src/keyboards/inline/settings_keyboard.py:8
+msgid "Settings"
+msgstr ""
+
