@@ -20,5 +20,8 @@ async def write_in_death_note(message: types.Message):
                  "/death_list").format(name_victim, reason)
         await message.answer(text)
     except IndexError:
-        await message.answer("Incorrect input")
-
+        text = _("(」°ロ°)」 Incorrect input\n"
+                 "\n"
+                 "📌 Example: /write Yagami Light Upal\n"
+                 "📌 Only three words after /write")
+        await message.answer(text)
