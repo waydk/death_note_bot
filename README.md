@@ -7,16 +7,24 @@
 ![Made](https://img.shields.io/badge/Made%20with%20fun%20-🍎-black?labelColor=060606)
 ![Licence](https://img.shields.io/badge/Licence%20-MIT-black?labelColor=060606)
 
+Telegram bot written in python using aiogram library, using postgresql as a database.
+<br></br>
+Made just for fun and doesn't make any bad sense! If you want to try the use, you can find it on Telegram [dth_note_bot](https://t.me/dth_note_bot)
+<br></br>
+If you like the bot, you can write me in the personal message your wishes, etc., and also the bot is open to your commits, glad to look at
+
+
+
 ## How to use
 - Rename .env.dist to .env
 ### in the .env file
-- Get a bot token from [@BotFather](http://telegram.me/BotFather) and replace BOT_TOKEN with your own
-- Replace ADMINS with your id 
-- Replace PGPASSWORD with your own
-- Replace DATABASE with your own
-- Replace PGHOST with docker ip
+- `Get a bot token from [@BotFather](http://telegram.me/BotFather) and replace BOT_TOKEN with your own`
+- `Replace ADMINS with your id`
+- `Replace PGPASSWORD with your own`
+- `Replace DATABASE with your own`
+- `Replace PGHOST with docker ip`
 #### Before using сompile languages
-at the terminal:
+At the terminal:
 ##### <code>pybabel compile -d locales -D death_note_bot</code>
 
 #### In the project folder, run
