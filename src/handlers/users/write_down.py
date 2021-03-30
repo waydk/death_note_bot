@@ -32,9 +32,9 @@ async def write_surname_name(message: types.Message, state: FSMContext):
     await state.update_data(surname_first_name=surname_first_name,
                             user_id=user_id, victim_id=victim_id)
     await message.answer_sticker(ryuk_write_down)
-    text_cause_of_death = _("Write down the cause of death ✒\n\nUnless you want to give yours,"
-                            "then the victim will die of a heart attack 💔⚰\n\nFor that,"
-                            "write none ✒ ")
+    text_cause_of_death = _("Write down the cause of death ✒\n\nUnless you want to give yours, "
+                            "then the victim will die of a heart attack 💔⚰\n\nFor that "
+                            "write none or None ✒ ")
     await message.answer(text_cause_of_death)
     await DeathNote.next()
 

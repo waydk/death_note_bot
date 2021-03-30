@@ -58,7 +58,6 @@ async def buy_picture(call: CallbackQuery):
                                     "Replenish apples : "
                                     "/write or /write_down"), reply_markup=close_markup)
     else:
-        await call.message.delete()
         apples = await db_helpers.add_apples(user_id=user_id, apples=-20)
         text = _("Your apples: {} 🍎").format(apples)
         await call.message.answer_photo(caption=text, photo=random.choice(pictures),
