@@ -11,6 +11,7 @@ from src.utils.db_api import db_helpers
 
 @dp.message_handler(Command("write_down"), state="*")
 async def write_in_death_note(message: types.Message):
+    await message.delete()
     text_dare = _("📓 You dared to use the death notebook, brave thing to do! Good luck!")
     text_victim = _("Write the victim's first and last name \n"
                     "⚫------------------------------------- ⚫\n"
@@ -56,10 +57,15 @@ async def write_cause(message: types.Message, state: FSMContext):
 
     await db_helpers.add_victim(id_user=user_id, id_victim=victim_id, name_victim=surname_first_name,
                                 reason=cause_of_death)
+    apples = await db_helpers.add_apples(user_id=message.from_user.id,
+                                         apples=10)
     text_death_note = _("✒ {} was recorded in the death note\n\n"
                         "☠ Cause of death: "
                         "{} 🍎 \n\n"
                         "📓 Open death note:  /death_list").format(surname_first_name, cause_of_death)
-    await message.answer(text_death_note, reply_markup=close_markup)
+    apples_info = _("Congratulations 🎉!\nYou got 10 apples 🍎 \n"
+                    "Your number of apples: {} 🍎").format(apples)
+    await message.answer(text_death_note)
+    await message.answer(apples_info, reply_markup=close_markup)
 
     await state.finish()

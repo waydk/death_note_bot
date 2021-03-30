@@ -18,10 +18,10 @@ async def write_in_death_note(message: types.Message):
         name_victim = victim[1] + ' ' + victim[2]
         reason = victim[3]
         await db_helpers.add_victim(id_user=user_id, id_victim=victim_id, name_victim=name_victim, reason=reason)
-        text = _("📓 {} was added to the death note\n ☠ his cause of death: {}\n"
-                 "  Check death note: /death_list").format(name_victim, reason)
         apples = await db_helpers.add_apples(user_id=message.from_user.id,
                                              apples=10)
+        text = _("📓 {} was added to the death note\n ☠ his cause of death: {}\n"
+                 "  Check death note: /death_list").format(name_victim, reason)
         apples_info = _("Congratulations 🎉!\nYou got 10 apples 🍎 \n"
                         "Your number of apples: {} 🍎").format(apples)
         await message.answer(text)
