@@ -9,7 +9,7 @@ from src.keyboards.inline.callback_datas import shop_call, close_callback
 from src.keyboards.inline.close_keyboard import close_markup, close_markup_shop
 from src.keyboards.inline.shop_keyboard import shop_markup
 from src.middlewares.language_middleware import get_lang
-from src.shop_module.characters import characters
+from src.shop_module.characters import characters_en, characters_ru
 from src.shop_module.death_note_pics import pictures
 from src.shop_module.quotes import quotes
 from src.shop_module.quotes_ru import quotes_ru
@@ -75,9 +75,14 @@ async def buy_info_character(call: CallbackQuery):
                                     "/write or /write_down"), reply_markup=close_markup_shop)
     else:
         apples = await db_helpers.add_apples(user_id=user_id, apples=-30)
-        text = _("You seem to be today: {}\n\n"
-                 "Your apples: {} 🍎").format(random.choice(characters), apples)
-        await call.message.answer(text, reply_markup=close_markup_shop)
+        if await get_lang(call.from_user.id) == "ru":
+            text = _("You seem to be today: {}\n\n"
+                     "Your apples: {} 🍎").format(random.choice(characters_ru), apples)
+            await call.message.answer(text, reply_markup=close_markup_shop)
+        else:
+            text = _("You seem to be today: {}\n\n"
+                     "Your apples: {} 🍎").format(random.choice(characters_en), apples)
+            await call.message.answer(text, reply_markup=close_markup_shop)
 
 
 @dp.callback_query_handler(close_callback.filter(name='close_shop'), state='*')
