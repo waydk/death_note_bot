@@ -20,10 +20,10 @@ async def open_settings(message: types.Message):
 
 
 @dp.callback_query_handler(settings_callback.filter(title="change_lang"), state='*')
-async def change_language(call: CallbackQuery):
+async def select_language(call: CallbackQuery):
     await call.message.delete()
     await call.answer(cache_time=1)
-    await call.message.answer(_("Select a language "), reply_markup=languages_markup)
+    await call.message.answer(_("Choose a language 😳"), reply_markup=languages_markup)
 
 
 @dp.callback_query_handler(text_contains="lang", state='*')
@@ -31,4 +31,4 @@ async def change_language(call: CallbackQuery):
     await call.message.edit_reply_markup()
     lang = call.data[-2:]
     await db_helpers.set_language(lang)
-    await call.message.answer(_("Your language has been changed", locale=lang), reply_markup=close_markup)
+    await call.message.answer(_("Your language has been changed 😳", locale=lang), reply_markup=close_markup)

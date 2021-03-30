@@ -21,5 +21,5 @@ async def show_top_users(message: types.Message):
         else:
             top.append(f"📓 {place + 1} {user[0]} - {user[1]} 🍎")
     top = '\n'.join(top)
-    text = _("TOP dudes with apples:\n{}").format(top)
+    text = _("😳 TOP dudes with apples:\n{}").format(top)
     await message.answer(text, reply_markup=close_markup)

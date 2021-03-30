@@ -9,7 +9,7 @@ from src.stickers.dn_stickers import kira
 
 
 @dp.message_handler(CommandHelp(), state='*')
-async def bot_help(message: types.Message):
+async def show_help_info(message: types.Message):
     await message.delete()
     text = _("available commands:\n"
              "/start - start a conversation\n"

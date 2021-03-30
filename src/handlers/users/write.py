@@ -8,9 +8,9 @@ from src.utils.db_api import db_helpers
 
 @dp.message_handler(Command("write"), state="*")
 async def write_in_death_note(message: types.Message):
-    await message.delete()
     """A simplified /write_down function that allows you to write
     the victim to the database"""
+    await message.delete()
     victim = message.text
     victim = victim.split(" ")
     user_id, victim_id = message.from_user.id, message.message_id

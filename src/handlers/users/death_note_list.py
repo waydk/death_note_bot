@@ -8,7 +8,7 @@ from loader import dp, _
 from src.utils.db_api import db_helpers
 
 
-async def retrieved(victims):
+async def make_readable(victims):
     """The function creates a list with victims in readable form and returns the strings"""
     text = _("reason")
     victims_list = []
@@ -26,13 +26,13 @@ async def show_death_note(message: types.Message):
     text = _('Write more /write_down✒\n\n '
              '🍎 Your Death Note : \n'
              '---------------------------------------\n'
-             '{}').format(await retrieved(victims))
+             '{}').format(await make_readable(victims))
 
     await message.answer(text=text, reply_markup=delete_victims_keyboard)
 
 
 @dp.callback_query_handler(delete_victims_call.filter(name="delete"), state='*')
-async def agree_victims(call: CallbackQuery):
+async def agreement_clear(call: CallbackQuery):
     await call.answer(cache_time=1)
     text = _('Are you sure? The whole list will be cleared! ')
     await call.message.edit_text(text=text, reply_markup=agreement_keyboard)
@@ -51,13 +51,13 @@ async def delete_victims(call: CallbackQuery):
 
 
 @dp.callback_query_handler(delete_victims_call.filter(name='no'), state='*')
-async def delete_victims(call: CallbackQuery):
+async def not_delete_victims(call: CallbackQuery):
     await call.answer(cache_time=1)
     user_id = call.from_user.id
     victims = await db_helpers.select_all_victims(user_id=user_id)
     text = _('Write more /write_down✒\n\n '
              '🍎 Your Death Note : \n'
              '---------------------------------------\n'
-             '{}').format(await retrieved(victims))
+             '{}').format(await make_readable(victims))
     await call.message.edit_text(text=text, reply_markup=delete_victims_keyboard)
 
