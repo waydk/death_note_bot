@@ -11,7 +11,7 @@ from src.utils.pages import get_page
 
 
 @dp.message_handler(Command("rules"), state='*')
-async def show_book(message: types.Message):
+async def show_rules(message: types.Message):
     """The function takes the first page"""
     if await get_lang(message.from_user.id) == "ru":
         text = get_page(rules_ru)
