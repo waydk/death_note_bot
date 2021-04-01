@@ -18,7 +18,7 @@ If you like the bot, you can write me in the personal message your wishes, etc.,
 ## How to use
 - Rename .env.dist to .env
 ### in the .env file
-- `Get a bot token from [@BotFather](http://telegram.me/BotFather) and replace BOT_TOKEN with your own`
+- Get a bot token from [@BotFather](http://telegram.me/BotFather) and replace BOT_TOKEN with your own
 - `Replace ADMINS with your id`
 - `Replace PGPASSWORD with your own`
 - `Replace DATABASE with your own`
