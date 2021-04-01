@@ -129,9 +129,17 @@ msgstr ""
 "\n"
 " Твои яблоки: {} 🍎"
 
+#: src/handlers/users/shop.py:44 src/handlers/users/shop.py:48
+msgid "please wait, the quote will be up soon 😜"
+msgstr "пожалуйста подождите цитата скоро появится 😜"
+
 #: src/handlers/users/shop.py:62
 msgid "Your apples: {} 🍎"
 msgstr "Твои яблоки {} 🍎"
+
+#: src/handlers/users/shop.py:65
+msgid "please wait, the picture will be up soon 😜"
+msgstr "пожалуйста подождите картинка скоро появится 😜"
 
 #: src/handlers/users/shop.py:78
 msgid ""

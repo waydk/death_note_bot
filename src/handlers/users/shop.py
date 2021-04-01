@@ -6,13 +6,13 @@ from aiogram.types import CallbackQuery
 
 from loader import dp, _
 from src.keyboards.inline.callback_datas import shop_call, close_callback
-from src.keyboards.inline.close_keyboard import close_markup, close_markup_shop
+from src.keyboards.inline.close_keyboard import close_markup_shop
 from src.keyboards.inline.shop_keyboard import shop_markup
 from src.middlewares.language_middleware import get_lang
 from src.shop_module.characters import characters_en, characters_ru
-from src.shop_module.death_note_pics import pictures
-from src.shop_module.quotes import quotes
-from src.shop_module.quotes_ru import quotes_ru
+from src.shop_module.death_note_pictures import parse_pictures
+from src.shop_module.quotes import parse_quotes
+from src.shop_module.quotes_ru import parse_quotes_ru
 from src.utils.db_api import db_helpers
 
 
@@ -41,10 +41,12 @@ async def buy_quote(call: CallbackQuery):
     else:
         apples = await db_helpers.add_apples(user_id=user_id, apples=-5)
         if await get_lang(call.from_user.id) == "ru":
-            text = _("{}\n\n Your apples: {} 🍎").format(random.choice(quotes_ru), apples)
+            await call.message.answer(_("please wait, the quote will be up soon 😜"), reply_markup=close_markup_shop)
+            text = _("{}\n\n Your apples: {} 🍎").format(random.choice(await parse_quotes_ru()), apples)
             await call.message.answer(text, reply_markup=close_markup_shop)
         else:
-            text = _("{}\n\n Your apples: {} 🍎").format(random.choice(quotes), apples)
+            await call.message.answer(_("please wait, the quote will be up soon 😜"), reply_markup=close_markup_shop)
+            text = _("{}\n\n Your apples: {} 🍎").format(random.choice(await parse_quotes()), apples)
             await call.message.answer(text, reply_markup=close_markup_shop)
 
 
@@ -56,11 +58,12 @@ async def buy_picture(call: CallbackQuery):
     if apples < 20:
         await call.message.answer(_("You don't have enough apples 🍎\n"
                                     "Replenish apples : "
-                                    "/write or /write_down"), reply_markup=close_markup)
+                                    "/write or /write_down"), reply_markup=close_markup_shop)
     else:
         apples = await db_helpers.add_apples(user_id=user_id, apples=-20)
         text = _("Your apples: {} 🍎").format(apples)
-        await call.message.answer_photo(caption=text, photo=random.choice(pictures),
+        await call.message.answer(_("please wait, the picture will be up soon 😜"), reply_markup=close_markup_shop)
+        await call.message.answer_photo(caption=text, photo=random.choice(await parse_pictures()),
                                         reply_markup=close_markup_shop)
 
 
